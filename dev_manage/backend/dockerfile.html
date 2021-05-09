@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dockerfile笔记 | DKGEE</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="业精于勤荒于嬉，行成于思毁于随">
+    
+    <link rel="preload" href="/assets/css/0.styles.c4d68e36.css" as="style"><link rel="preload" href="/assets/js/app.cac75e5a.js" as="script"><link rel="preload" href="/assets/js/2.f0fea1c2.js" as="script"><link rel="preload" href="/assets/js/21.17a1140b.js" as="script"><link rel="prefetch" href="/assets/js/10.a01553da.js"><link rel="prefetch" href="/assets/js/100.ab8a70a9.js"><link rel="prefetch" href="/assets/js/101.310df40c.js"><link rel="prefetch" href="/assets/js/102.c4ae6883.js"><link rel="prefetch" href="/assets/js/103.ff77d1c9.js"><link rel="prefetch" href="/assets/js/104.cd8a3c68.js"><link rel="prefetch" href="/assets/js/105.0b8bfb8f.js"><link rel="prefetch" href="/assets/js/106.b7362c11.js"><link rel="prefetch" href="/assets/js/107.b82194d9.js"><link rel="prefetch" href="/assets/js/108.e22726ba.js"><link rel="prefetch" href="/assets/js/109.ee6ac3a7.js"><link rel="prefetch" href="/assets/js/11.4f6deee8.js"><link rel="prefetch" href="/assets/js/110.38c9d414.js"><link rel="prefetch" href="/assets/js/111.7227316f.js"><link rel="prefetch" href="/assets/js/112.35a6d8e0.js"><link rel="prefetch" href="/assets/js/113.f82f7031.js"><link rel="prefetch" href="/assets/js/114.57b42ebb.js"><link rel="prefetch" href="/assets/js/115.0cc31406.js"><link rel="prefetch" href="/assets/js/116.b8574b88.js"><link rel="prefetch" href="/assets/js/117.1e3e854a.js"><link rel="prefetch" href="/assets/js/118.4c8f5a32.js"><link rel="prefetch" href="/assets/js/119.f35d91bb.js"><link rel="prefetch" href="/assets/js/12.24620ce7.js"><link rel="prefetch" href="/assets/js/120.822a9260.js"><link rel="prefetch" href="/assets/js/121.c29244f7.js"><link rel="prefetch" href="/assets/js/122.a8185eac.js"><link rel="prefetch" href="/assets/js/123.0a52f1e3.js"><link rel="prefetch" href="/assets/js/124.8b8aa1d3.js"><link rel="prefetch" href="/assets/js/125.5b455e9d.js"><link rel="prefetch" href="/assets/js/126.44f8a228.js"><link rel="prefetch" href="/assets/js/127.da8e91f3.js"><link rel="prefetch" href="/assets/js/128.36daabe7.js"><link rel="prefetch" href="/assets/js/129.7303b334.js"><link rel="prefetch" href="/assets/js/13.48975c9e.js"><link rel="prefetch" href="/assets/js/130.edbb56e9.js"><link rel="prefetch" href="/assets/js/131.c1fce7d7.js"><link rel="prefetch" href="/assets/js/132.1f6c74a0.js"><link rel="prefetch" href="/assets/js/133.322702b9.js"><link rel="prefetch" href="/assets/js/134.4575b010.js"><link rel="prefetch" href="/assets/js/135.dde705b1.js"><link rel="prefetch" href="/assets/js/136.82df8edc.js"><link rel="prefetch" href="/assets/js/137.606efe3a.js"><link rel="prefetch" href="/assets/js/138.6c66f4c5.js"><link rel="prefetch" href="/assets/js/139.431c1ed0.js"><link rel="prefetch" href="/assets/js/14.e55732fd.js"><link rel="prefetch" href="/assets/js/15.5e288fb7.js"><link rel="prefetch" href="/assets/js/16.79f6c774.js"><link rel="prefetch" href="/assets/js/17.91896b20.js"><link rel="prefetch" href="/assets/js/18.894f7dc3.js"><link rel="prefetch" href="/assets/js/19.8648d3ca.js"><link rel="prefetch" href="/assets/js/20.c60b422b.js"><link rel="prefetch" href="/assets/js/22.4a248712.js"><link rel="prefetch" href="/assets/js/23.cc2ac7c6.js"><link rel="prefetch" href="/assets/js/24.b31f42b4.js"><link rel="prefetch" href="/assets/js/25.4f0fcb1a.js"><link rel="prefetch" href="/assets/js/26.febecdb3.js"><link rel="prefetch" href="/assets/js/27.25f121a2.js"><link rel="prefetch" href="/assets/js/28.96016382.js"><link rel="prefetch" href="/assets/js/29.5eeba416.js"><link rel="prefetch" href="/assets/js/3.5d79d969.js"><link rel="prefetch" href="/assets/js/30.2cb19359.js"><link rel="prefetch" href="/assets/js/31.d9873609.js"><link rel="prefetch" href="/assets/js/32.80943421.js"><link rel="prefetch" href="/assets/js/33.334e9f03.js"><link rel="prefetch" href="/assets/js/34.08e542df.js"><link rel="prefetch" href="/assets/js/35.9adabac0.js"><link rel="prefetch" href="/assets/js/36.3820cb43.js"><link rel="prefetch" href="/assets/js/37.641ffade.js"><link rel="prefetch" href="/assets/js/38.98b9ffd3.js"><link rel="prefetch" href="/assets/js/39.03837698.js"><link rel="prefetch" href="/assets/js/4.916d73ee.js"><link rel="prefetch" href="/assets/js/40.9392f959.js"><link rel="prefetch" href="/assets/js/41.eb8a75fa.js"><link rel="prefetch" href="/assets/js/42.b5daaaa4.js"><link rel="prefetch" href="/assets/js/43.17748aef.js"><link rel="prefetch" href="/assets/js/44.988a15fe.js"><link rel="prefetch" href="/assets/js/45.bc002cb3.js"><link rel="prefetch" href="/assets/js/46.906ec871.js"><link rel="prefetch" href="/assets/js/47.5e421adb.js"><link rel="prefetch" href="/assets/js/48.bd9684bf.js"><link rel="prefetch" href="/assets/js/49.75d68d33.js"><link rel="prefetch" href="/assets/js/5.997c16bf.js"><link rel="prefetch" href="/assets/js/50.a70a1af3.js"><link rel="prefetch" href="/assets/js/51.def0bdbd.js"><link rel="prefetch" href="/assets/js/52.6d3c5157.js"><link rel="prefetch" href="/assets/js/53.0662fbff.js"><link rel="prefetch" href="/assets/js/54.8cc897aa.js"><link rel="prefetch" href="/assets/js/55.fba5102a.js"><link rel="prefetch" href="/assets/js/56.a9ada340.js"><link rel="prefetch" href="/assets/js/57.a1481b76.js"><link rel="prefetch" href="/assets/js/58.6a24374a.js"><link rel="prefetch" href="/assets/js/59.ae1bad3a.js"><link rel="prefetch" href="/assets/js/6.d6e1fb61.js"><link rel="prefetch" href="/assets/js/60.f3010743.js"><link rel="prefetch" href="/assets/js/61.9e36ceac.js"><link rel="prefetch" href="/assets/js/62.2cc4e888.js"><link rel="prefetch" href="/assets/js/63.a3f0fbd4.js"><link rel="prefetch" href="/assets/js/64.43ff3d75.js"><link rel="prefetch" href="/assets/js/65.a5d8eafb.js"><link rel="prefetch" href="/assets/js/66.6e06e246.js"><link rel="prefetch" href="/assets/js/67.875cb9db.js"><link rel="prefetch" href="/assets/js/68.d1b908c4.js"><link rel="prefetch" href="/assets/js/69.499ad08e.js"><link rel="prefetch" href="/assets/js/7.2bdc3119.js"><link rel="prefetch" href="/assets/js/70.6f8e5ceb.js"><link rel="prefetch" href="/assets/js/71.3089267c.js"><link rel="prefetch" href="/assets/js/72.cdeac92f.js"><link rel="prefetch" href="/assets/js/73.c60d2e95.js"><link rel="prefetch" href="/assets/js/74.24ed6aeb.js"><link rel="prefetch" href="/assets/js/75.fea79501.js"><link rel="prefetch" href="/assets/js/76.65abf4f1.js"><link rel="prefetch" href="/assets/js/77.6639abab.js"><link rel="prefetch" href="/assets/js/78.cfaaa1a5.js"><link rel="prefetch" href="/assets/js/79.0dfeede5.js"><link rel="prefetch" href="/assets/js/8.40a50159.js"><link rel="prefetch" href="/assets/js/80.57138ccd.js"><link rel="prefetch" href="/assets/js/81.45453116.js"><link rel="prefetch" href="/assets/js/82.ae746852.js"><link rel="prefetch" href="/assets/js/83.a2ca01c5.js"><link rel="prefetch" href="/assets/js/84.1cb083a4.js"><link rel="prefetch" href="/assets/js/85.6163579f.js"><link rel="prefetch" href="/assets/js/86.0aca8e65.js"><link rel="prefetch" href="/assets/js/87.3b3e9390.js"><link rel="prefetch" href="/assets/js/88.5dd99710.js"><link rel="prefetch" href="/assets/js/89.93b76515.js"><link rel="prefetch" href="/assets/js/9.27c3ead2.js"><link rel="prefetch" href="/assets/js/90.fe918eb3.js"><link rel="prefetch" href="/assets/js/91.f499289b.js"><link rel="prefetch" href="/assets/js/92.49d2ab7b.js"><link rel="prefetch" href="/assets/js/93.ebf2f36b.js"><link rel="prefetch" href="/assets/js/94.37b10b55.js"><link rel="prefetch" href="/assets/js/95.dfbf83fd.js"><link rel="prefetch" href="/assets/js/96.90ee7c38.js"><link rel="prefetch" href="/assets/js/97.eb8c9148.js"><link rel="prefetch" href="/assets/js/98.08b7e2f7.js"><link rel="prefetch" href="/assets/js/99.46391a46.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c4d68e36.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">DKGEE</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="软件开发" class="dropdown-title"><span class="title">软件开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="软件开发" class="mobile-dropdown-title"><span class="title">软件开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dev_manage/" class="nav-link router-link-active">
+  研发管理
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/improve.html" class="nav-link">
+  软工修养
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/soft_arch/" class="nav-link">
+  软件架构
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/backend/" class="nav-link router-link-active">
+  后端框架
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/frontend/" class="nav-link">
+  前端框架
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/anli/" class="nav-link">
+  案例与团队
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/tip_wall.html" class="nav-link">
+  小知识墙
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/linux/command.html" class="nav-link">
+  Linux命令
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/renda/" class="nav-link">
+  在职研究生
+</a></li><li class="dropdown-item"><!----> <a href="/renda/" class="nav-link">
+  信管国考题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文学收藏" class="dropdown-title"><span class="title">文学收藏</span> <span class="arrow down"></span></button> <button type="button" aria-label="文学收藏" class="mobile-dropdown-title"><span class="title">文学收藏</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/literature/motto.html" class="nav-link">
+  励志格言
+</a></li><li class="dropdown-item"><!----> <a href="/literature/poetry.html" class="nav-link">
+  古诗词
+</a></li><li class="dropdown-item"><!----> <a href="/literature/poetry_modern.html" class="nav-link">
+  现代诗
+</a></li><li class="dropdown-item"><!----> <a href="/literature/prose.html" class="nav-link">
+  散文艺曲
+</a></li><li class="dropdown-item"><!----> <a href="/literature/music.html" class="nav-link">
+  音乐歌曲
+</a></li><li class="dropdown-item"><!----> <a href="/literature/painting.html" class="nav-link">
+  画作
+</a></li><li class="dropdown-item"><!----> <a href="/literature/book/" class="nav-link">
+  阅读书籍
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="规划指南" class="dropdown-title"><span class="title">规划指南</span> <span class="arrow down"></span></button> <button type="button" aria-label="规划指南" class="mobile-dropdown-title"><span class="title">规划指南</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/" class="nav-link">
+  学习指南
+</a></li><li class="dropdown-item"><!----> <a href="/guide/gitRepo.html" class="nav-link">
+  仓库指南
+</a></li><li class="dropdown-item"><!----> <a href="/guide/report/" class="nav-link">
+  日常总结
+</a></li><li class="dropdown-item"><!----> <a href="/guide/pkm/" class="nav-link">
+  公知图
+</a></li><li class="dropdown-item"><!----> <a href="/guide/eng_word.html" class="nav-link">
+  英语笔记
+</a></li><li class="dropdown-item"><!----> <a href="/guide/summary_year/" class="nav-link">
+  年度规划
+</a></li><li class="dropdown-item"><!----> <a href="/guide/upgrade.html" class="nav-link">
+  每期升级
+</a></li><li class="dropdown-item"><!----> <a href="/guide/about.html" class="nav-link">
+  关于DKGEE
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="站外链接" class="dropdown-title"><span class="title">站外链接</span> <span class="arrow down"></span></button> <button type="button" aria-label="站外链接" class="mobile-dropdown-title"><span class="title">站外链接</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://raw.githack.com/dkgee/skill-map/master/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  知识整理第三版【网页】
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/dkgee/tk_arch/wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  知识整理第二版【wiki】
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/dkgee/bigdata-platform-study" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  知识整理第一版【仓库】
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/dkgee" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/dkgee" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/TankRuning" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://pptang.xyz/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  皮皮糖01
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://pipitang.xyz/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  皮皮糖02
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://cftx.xyz/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  皮皮糖03
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="商务知识" class="dropdown-title"><span class="title">商务知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="商务知识" class="mobile-dropdown-title"><span class="title">商务知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/business/" class="nav-link">
+  商务概述
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="软件开发" class="dropdown-title"><span class="title">软件开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="软件开发" class="mobile-dropdown-title"><span class="title">软件开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dev_manage/" class="nav-link router-link-active">
+  研发管理
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/improve.html" class="nav-link">
+  软工修养
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/soft_arch/" class="nav-link">
+  软件架构
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/backend/" class="nav-link router-link-active">
+  后端框架
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/frontend/" class="nav-link">
+  前端框架
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/anli/" class="nav-link">
+  案例与团队
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/tip_wall.html" class="nav-link">
+  小知识墙
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/linux/command.html" class="nav-link">
+  Linux命令
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/renda/" class="nav-link">
+  在职研究生
+</a></li><li class="dropdown-item"><!----> <a href="/renda/" class="nav-link">
+  信管国考题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文学收藏" class="dropdown-title"><span class="title">文学收藏</span> <span class="arrow down"></span></button> <button type="button" aria-label="文学收藏" class="mobile-dropdown-title"><span class="title">文学收藏</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/literature/motto.html" class="nav-link">
+  励志格言
+</a></li><li class="dropdown-item"><!----> <a href="/literature/poetry.html" class="nav-link">
+  古诗词
+</a></li><li class="dropdown-item"><!----> <a href="/literature/poetry_modern.html" class="nav-link">
+  现代诗
+</a></li><li class="dropdown-item"><!----> <a href="/literature/prose.html" class="nav-link">
+  散文艺曲
+</a></li><li class="dropdown-item"><!----> <a href="/literature/music.html" class="nav-link">
+  音乐歌曲
+</a></li><li class="dropdown-item"><!----> <a href="/literature/painting.html" class="nav-link">
+  画作
+</a></li><li class="dropdown-item"><!----> <a href="/literature/book/" class="nav-link">
+  阅读书籍
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="规划指南" class="dropdown-title"><span class="title">规划指南</span> <span class="arrow down"></span></button> <button type="button" aria-label="规划指南" class="mobile-dropdown-title"><span class="title">规划指南</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/" class="nav-link">
+  学习指南
+</a></li><li class="dropdown-item"><!----> <a href="/guide/gitRepo.html" class="nav-link">
+  仓库指南
+</a></li><li class="dropdown-item"><!----> <a href="/guide/report/" class="nav-link">
+  日常总结
+</a></li><li class="dropdown-item"><!----> <a href="/guide/pkm/" class="nav-link">
+  公知图
+</a></li><li class="dropdown-item"><!----> <a href="/guide/eng_word.html" class="nav-link">
+  英语笔记
+</a></li><li class="dropdown-item"><!----> <a href="/guide/summary_year/" class="nav-link">
+  年度规划
+</a></li><li class="dropdown-item"><!----> <a href="/guide/upgrade.html" class="nav-link">
+  每期升级
+</a></li><li class="dropdown-item"><!----> <a href="/guide/about.html" class="nav-link">
+  关于DKGEE
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="站外链接" class="dropdown-title"><span class="title">站外链接</span> <span class="arrow down"></span></button> <button type="button" aria-label="站外链接" class="mobile-dropdown-title"><span class="title">站外链接</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://raw.githack.com/dkgee/skill-map/master/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  知识整理第三版【网页】
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/dkgee/tk_arch/wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  知识整理第二版【wiki】
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/dkgee/bigdata-platform-study" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  知识整理第一版【仓库】
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/dkgee" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/dkgee" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/TankRuning" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://pptang.xyz/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  皮皮糖01
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://pipitang.xyz/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  皮皮糖02
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://cftx.xyz/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  皮皮糖03
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="商务知识" class="dropdown-title"><span class="title">商务知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="商务知识" class="mobile-dropdown-title"><span class="title">商务知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/business/" class="nav-link">
+  商务概述
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>软件开发</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dev_manage/" aria-current="page" class="sidebar-link">研发管理</a></li><li><a href="/dev_manage/improve.html" class="sidebar-link">软工修养</a></li><li><a href="/dev_manage/soft_arch/" class="sidebar-link">软件架构</a></li><li><a href="/dev_manage/backend/" aria-current="page" class="sidebar-link">后端框架</a></li><li><a href="/dev_manage/frontend/" class="sidebar-link">前端框架</a></li><li><a href="/dev_manage/anli/" class="sidebar-link">案例与团队</a></li><li><a href="/dev_manage/tip_wall.html" class="sidebar-link">小知识墙</a></li><li><a href="/dev_manage/linux/command.html" class="sidebar-link">Linux命令</a></li><li><a href="/dev_manage/renda/" class="sidebar-link">在职研究生</a></li><li><a href="/renda/" class="sidebar-link">信管国考题</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="dockerfile笔记"><a href="#dockerfile笔记" class="header-anchor">#</a> Dockerfile笔记</h2> <h3 id="制作镜像时注意事项"><a href="#制作镜像时注意事项" class="header-anchor">#</a> 制作镜像时注意事项</h3> <ol><li>RUN一条命令能解决的事，就不要多条，不然会导致制作的镜像包变大（因为多了一层）。</li></ol> <div class="custom-block tip"><p class="custom-block-title">命令</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>
+<span class="token comment">######################### FROM ##########################</span>
+<span class="token comment"># 制作基准镜像</span>
+FROM 镜像
+<span class="token comment"># 比如我们要发布一个应用到tomcat里，那么的第一步就是FROM tomcat</span>
+FROM tomcat<span class="token operator">&lt;</span>:tags<span class="token operator">&gt;</span>
+
+<span class="token comment">######################### LABEL&amp;MAINTAINER ##########################</span>
+<span class="token comment"># MAINTAINER，一般写个人id或组织id</span>
+<span class="token comment"># LABEL 就是注释，方便阅读的，纯注释说明。不会对Dockerfile造成任何影响</span>
+<span class="token comment"># 比如：</span>
+MAINTAINER baidu.com
+LABEL version <span class="token operator">=</span> <span class="token string">&quot;1.0.0&quot;</span>
+LABEL description <span class="token operator">=</span> <span class="token string">&quot;我们是大百度！&quot;</span>
+<span class="token comment"># ...等等描述性信息，纯注释。</span>
+
+<span class="token comment">######################### WORKDIR ##########################</span>
+<span class="token comment"># 类似于Linux中的cd命令，但是他比cd高级的地方在于，我先cd，发现没有这个目录，我就自动创建出来，然后在cd进去</span>
+WORKDIR /usr/local/testdir
+
+<span class="token comment">######################### COPY ##########################</span>
+<span class="token comment"># 将1.txt拷贝到根目录下。它不仅仅能拷贝单个文件，还支持Go语言风格的通配符，比如如下：</span>
+COPY <span class="token number">1</span>.txt /
+<span class="token comment"># 拷贝所有 abc 开头的文件到testdir目录下</span>
+COPY abc* /testdir/
+<span class="token comment"># ? 是单个字符的占位符，比如匹配文件 abc1.log</span>
+COPY abc?.log /testdir/
+
+<span class="token comment">######################### ADD ##########################</span>
+<span class="token comment"># 将1.txt拷贝到根目录的abc目录下。若/abc不存在，则会自动创建</span>
+ADD <span class="token number">1</span>.txt /abc
+<span class="token comment"># 将test.tar.gz解压缩然后将解压缩的内容拷贝到/home/work/test</span>
+ADD test.tar.gz /home/work/test
+
+<span class="token comment"># docker官方建议当要从远程复制文件时，尽量用curl/wget命令来代替ADD。因为用ADD的时候会创建更多的镜像层。镜像层的size也大。</span>
+<span class="token comment">#</span>
+<span class="token comment"># 对比:二者都是只复制目录中的文件，而不包含目录本身。COPY能干的事ADD都能干，甚至还有附加功能。</span>
+<span class="token comment"># ADD可以支持拷贝的时候顺带解压缩文件，以及添加远程文件（不在本宿主机上的文件）。只是文件拷贝的话可以用COPY，有额外操作可以用ADD代替。</span>
+
+<span class="token comment">######################### ENV ##########################</span>
+<span class="token comment"># 设置环境常量，方便下文引用，比如：</span>
+ENV JAVA_HOME /usr/local/jdk1.8
+<span class="token comment"># 引用上面的常量，下面的RUN指令可以先不管啥意思，目的是想说明下文可以通过${xxx}的方式引用</span>
+RUN <span class="token variable">${JAVA_HOME}</span>/bin/java -jar xxx.jar
+<span class="token comment"># ENV设置的常量，其他地方都可以用${xxx}来引用，将来改的时候只改ENV的变量内容就行</span>
+
+<span class="token comment">######################### RUN ##########################</span>
+<span class="token comment"># 执行时机：RUN指令是在构建镜像时运行，在构建时能修改镜像内部的文件。命令格式不光是RUN独有，而是下面的CMD和ENTRYPOINT都通用。</span>
+<span class="token comment"># SHELL命令格式</span>
+RUN yum -y <span class="token function">install</span> <span class="token function">vim</span>
+<span class="token comment"># EXEC命令格式</span>
+RUN <span class="token punctuation">[</span><span class="token string">&quot;yum&quot;</span>,<span class="token string">&quot;-y&quot;</span>,<span class="token string">&quot;install&quot;</span>,<span class="token string">&quot;vim&quot;</span><span class="token punctuation">]</span>
+<span class="token comment"># 二者对比，SHELL：当前shell是父进程，生成一个子shell进程去执行脚本，脚本执行完后退出子shell进程，回到当前父shell进程。</span>
+<span class="token comment"># EXEC：用EXEC进程替换当前进程，并且保持PID不变，执行完毕后直接退出，不会退回原来的进程。</span>
+<span class="token comment"># 总结：也就是说shell会创建子进程执行，EXEC不会创建子进程。</span>
+<span class="token comment"># 推荐EXEC命令格式</span>
+<span class="token comment"># 举个最简单的例子，构建镜像时输出一句话，那么在Dockerfile里写如下即可：</span>
+RUN <span class="token punctuation">[</span><span class="token string">&quot;echo&quot;</span>, <span class="token string">&quot;image is building!!!&quot;</span><span class="token punctuation">]</span>
+<span class="token comment"># 再比如我们要下载vim，那么在Dockerfile里写如下即可：</span>
+RUN <span class="token punctuation">[</span><span class="token string">&quot;yum&quot;</span>,<span class="token string">&quot;-y&quot;</span>,<span class="token string">&quot;install&quot;</span>,<span class="token string">&quot;vim&quot;</span><span class="token punctuation">]</span>
+
+<span class="token comment">######################### CMD ##########################</span>
+<span class="token comment"># 执行时机：容器启动时执行，而不是镜像构建时执行。</span>
+<span class="token comment"># 在容器启动的时候执行此命令，且Dockerfile中只有最后一个ENTRYPOINT会被执行，推荐用EXEC格式。重点在于如果容器启动的时候</span>
+<span class="token comment"># 有其他额外的附加指令，则CMD指令不生效。举例：</span>
+CMD <span class="token punctuation">[</span><span class="token string">&quot;echo&quot;</span>, <span class="token string">&quot;container starting...&quot;</span><span class="token punctuation">]</span> 
+
+<span class="token comment">######################### ENTRYPOINT ##########################</span>
+<span class="token comment"># 执行时机：容器创建时执行，而不是镜像构建时执行。</span>
+<span class="token comment"># 在容器启动的时候执行此命令，且Dockerfile中只有最后一个ENTRYPOINT会被执行，推荐用EXEC格式。举例：</span>
+ENTRYPOINT <span class="token punctuation">[</span><span class="token string">&quot;ps&quot;</span>,<span class="token string">&quot;-ef&quot;</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 执行时机演示</span>
+FROM centos
+RUN <span class="token punctuation">[</span><span class="token string">&quot;echo&quot;</span>, <span class="token string">&quot;image building!!!&quot;</span><span class="token punctuation">]</span>
+CMD <span class="token punctuation">[</span><span class="token string">&quot;echo&quot;</span>, <span class="token string">&quot;container starting...&quot;</span><span class="token punctuation">]</span>
+docker build -t chentongwei.com/test-docker-run <span class="token builtin class-name">.</span>
+<span class="token comment"># 构建镜像的过程中发现我们RUN的image building!!! 输出了，所以RUN命令是在镜像构建时执行。而并没有container starting…的输出。</span>
+docker run chentongwei.com/test-docker-run
+<span class="token comment"># 结果：container starting...，足以发现CMD命令是在容器启动的时候执行。</span>
+
+<span class="token comment"># CMD和ENTRYPOINT演示</span>
+<span class="token comment"># ENTRYPOINT和CMD可以共用，若共用则他会一起合并执行。如下Demo：</span>
+FROM centos
+RUN <span class="token punctuation">[</span><span class="token string">&quot;echo&quot;</span>, <span class="token string">&quot;image building!!!&quot;</span><span class="token punctuation">]</span>
+ENTRYPOINT <span class="token punctuation">[</span><span class="token string">&quot;ps&quot;</span><span class="token punctuation">]</span>
+CMD <span class="token punctuation">[</span><span class="token string">&quot;-ef&quot;</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 构建镜像</span>
+docker build -t chentongwei.com/docker-run <span class="token builtin class-name">.</span>
+<span class="token comment"># 启动容器</span>
+docker run chentongwei.com/docker-run
+
+<span class="token comment"># 他给我们合并执行了：ps -ef，这么做的好处在于如果容器启动的时候添加额外指令，CMD会失效，可以理解成我们可以动态的改变CMD内容而</span>
+<span class="token comment"># 不需要重新构建镜像等操作。比如</span>
+docker run chentongwei.com/docker-run -aux
+<span class="token comment"># 结果直接变成了 ps -aux，CMD命令不执行了。但是ENTRYPOINT一定执行，这也是CMD和ENTRYPOINT的区别之一。</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br></div></div><ol start="2"><li>Redis</li></ol> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># 将Redis运行在centos上</span>
+FROM centos
+<span class="token comment"># 安装Redis所需要的基础库</span>
+RUN <span class="token punctuation">[</span><span class="token string">&quot;yum&quot;</span>, <span class="token string">&quot;install&quot;</span>, <span class="token string">&quot;-y&quot;</span>, <span class="token string">&quot;gcc&quot;</span>, <span class="token string">&quot;gcc-c++&quot;</span>, <span class="token string">&quot;net-tools&quot;</span>, <span class="token string">&quot;make&quot;</span><span class="token punctuation">]</span>
+<span class="token comment"># 将Redis目录放到/usr/local</span>
+WORKDIR /usr/local
+<span class="token comment"># 别忘了ADD命令自带解压缩的功能</span>
+ADD redis-4.0.14.tag.gz <span class="token builtin class-name">.</span>
+WORKDIR /usr/local/redis-4.0.14/src
+<span class="token comment"># 编译安装Redis</span>
+RUN <span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span>
+WORKDIR /usr/local/redis-4.0.14
+<span class="token comment"># 将配置文件仍到Redis根目录</span>
+ADD redis-6379.conf <span class="token builtin class-name">.</span>
+<span class="token comment"># 声明容器中Redis的端口为6379</span>
+EXPOSE <span class="token number">6379</span>
+<span class="token comment"># 启动Redis  redis-server redis-6379.conf</span>
+CMD <span class="token punctuation">[</span><span class="token string">&quot;redis-server&quot;</span>, <span class="token string">&quot;redis-6379.conf&quot;</span><span class="token punctuation">]</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>制作镜像&amp;&amp;启动容器</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># 制作镜像</span>
+docker build -t chentongwei.com/docker-redis <span class="token builtin class-name">.</span>
+<span class="token comment"># 查看</span>
+docker images
+<span class="token comment"># 启动容器</span>
+docker run -p <span class="token number">6379</span>:6379 chentongwei.com/docker-redis
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div></div> <p>基础jdk1.8镜像</p> <div class="language- extra-class"><pre><code>frolvlad/alpine-oraclejre8	# 镜像内sh命令，不能执行脚本
+funteam/jdk1.8-mini		# 镜像内sh命令，
+openjdk:8-jre-alpine
+# 制作镜像
+docker build -f  xxx.dockerfile -t dkgee/app:v1
+</code></pre></div><div class="custom-block tip"><p class="custom-block-title">示例一</p> <div class="language- extra-class"><pre><code># 指明当前镜像继承的基镜像,编译当前镜像时候会自动下载基镜像
+FROM frolvlad/alpine-oraclejre8
+# 当前镜像的作者和邮箱,使用空格隔开
+MAINTAINER  dkgee dk_gee@163.com
+# 挂载目录（在宿主机可以共享访问）
+VOLUME /root
+# 从当前工作目录复制文件到镜像目录中并重新命名
+ADD demo-0.0.1.jar demo.jar     
+# 在当前镜像上执行Linux命令
+RUN sh -c 'touch /demo.jar'
+#对外暴露端口
+EXPOSE 8080
+# 让容器像一个可执行程序一样运行，entrypoint才是正统地用于定义容器启动以后的执行体
+ENTRYPOINT [&quot;java&quot;, &quot;-jar&quot;, &quot;demo.jar&quot;] 
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">示例二(基于ubuntu制作)</p> <div class="language- extra-class"><pre><code># Version: 1.0.1
+FROM ubuntu:latest
+MAINTAINER xxh &quot;xxh@qq.com&quot;
+#设置root用户为后续命令的执行者
+USER root
+#执行操作
+RUN apt-get update
+RUN apt-get install -y nginx
+#使用&amp;&amp;拼接命令
+RUN touch test.txt &amp;&amp; echo &quot;abc&quot; &gt;&gt; abc.txt
+EXPOSE 80 8080 1038
+#添加文件
+ADD abc.txt /opt/
+#添加文件夹
+ADD /webapp /opt/webapp
+#添加网络文件
+ADD https://www.baidu.com/img/bd_logo1.png /opt/
+#设置环境变量
+ENV WEBAPP_PORT=9090
+#设置工作目录
+WORKDIR /opt/
+#设置启动命令
+ENTRYPOINT [&quot;ls&quot;]
+#设置启动参数
+CMD [&quot;-a&quot;, &quot;-l&quot; ]
+#设置卷
+VOLUME [&quot;/data&quot;, &quot;/var/www&quot;]
+#设置子镜像的触发操作
+ONBUILD ADD . /app/src
+ONBUILD RUN echo &quot;on build excuted&quot; &gt;&gt; onbuild.txt
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">示例三(基于centos制作)</p> <div class="language- extra-class"><pre><code># 表示从docker官方仓库中获取centos基础镜像
+FROM centos
+# 将当前目录下（与Dockerfile同一级目录）的jdk添加到镜像的/usr/local/中
+ADD jdk-8u161-linux-x64.tar.gz  /usr/local/
+ADD apache-tomcat-8.5.29.tar.gz  /usr/local/
+# 设置Java的环境变量
+ENV JAVA_HOME /usr/local/jdk1.8.0_161
+ENV CLASSPATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+ENV CATALINA_HOME /usr/local/apache-tomcat-8.5.29
+ENV CATALINA_BASE /usr/local/apache-tomcat-8.5.29
+ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/lib:$CATALINA_HOME/bin
+ADD ./TRMS_HK.war /usr/local/apache-tomcat-8.5.29/webapps
+# 对外暴露的端口，便于外部访问
+EXPOSE 8080
+
+# CMD主要作用是默认的容器启动执行命令，容器启动以后，默认的执行的命令；
+# 大多数网上博客论坛说的“cmd会被覆盖”，其实为什么会覆盖？因为cmd的角色定位就是默认，如果你不额外指定，
+# 那么就执行cmd的命令，否则呢？只要你指定了，那么就不会执行cmd，也就是cmd会被覆盖
+# 一个dockerfile至多只能有一个cmd，如果有多个，只有最后一个生效。
+CMD /usr/local/apache-tomcat-8.5.29/bin/catalina.sh run
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">示例四(基于JDK制作)</p> <div class="language- extra-class"><pre><code>FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ADD kitty-monitor-1.0.0.jar app.jar
+ENTRYPOINT [&quot;java&quot;,&quot;-Djava.security.egd=file:/dev/./urandom&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">示例五(基于JDK制作)</p> <div class="language- extra-class"><pre><code>FROM java:8
+RUN mkdir -p /usr/src/myapp
+COPY target/gs-rest-service-0.1.0.jar /usr/src/myapp/
+WORKDIR /usr/src/myapp
+EXPOSE 8080
+RUN java -jar gs-rest-service-0.1.0.jar
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">示例六(基于JDK制作)</p> <div class="language- extra-class"><pre><code>FROM frolvlad/alpine-oraclejre8
+MAINTAINER dkgee dk_gee@163.com
+ADD cms-tsp-web-1.1.3.40-bin.zip /cms-tsp-web-1.1.3.40-bin.zip
+RUN sh -c 'unzip /cms-tsp-web-1.1.3.40-bin.zip'
+EXPOSE 19090
+# CMD /cms-tsp-web-1.1.3.40/start.sh start dev
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">示例七(基于JDK制作)</p> <div class="language- extra-class"><pre><code>FROM funteam/jdk1.8-mini
+MAINTAINER dkgee dk_gee@163.com
+ADD cms-tsp-web-1.1.3.40-bin.zip /cms-tsp-web-1.1.3.40-bin.zip
+RUN sh -c 'unzip /cms-tsp-web-1.1.3.40-bin.zip'
+EXPOSE 19090
+#【提示】start.sh脚本中不能以后台模式(nohup)运行，否则启动时会自动退出
+ENTRYPOINT [&quot;/cms-tsp-web-1.1.3.40/start.sh&quot;, &quot;start&quot;, &quot;dev&quot;]
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">示例八(基于Node制作)</p> <div class="language- extra-class"><pre><code># Create image based on the official Node 6 image from dockerhub
+FROM node:6-alpine
+LABEL author=&quot;Vijayendra Mudigal&quot;
+MAINTAINER vijayendrap@gmail.com
+
+# Create a directory where our app will be placed
+RUN mkdir -p /usr/src/app
+
+# Change directory so that our commands run inside this new directory
+WORKDIR /usr/src/app
+
+# Copy dependency definitions
+COPY package.json /usr/src/app
+
+# Install dependecies
+RUN npm install
+
+# Get all the code needed to run the app
+COPY . /usr/src/app
+
+# Expose the port the app runs in
+EXPOSE 4200
+
+# Serve the app
+CMD [&quot;npm&quot;, &quot;start&quot;]
+</code></pre></div></div> <ol><li>扩展Logstash镜像插件方式，重新编写一个Dockerfile，基于之前的镜像，使用logstash-plugin命令添加</li></ol> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>FROM registry.cn-beijing.aliyuncs.com/dkgee/logstash:6.7.0
+RUN logstash-plugin <span class="token function">install</span> logstash-input-nsq
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2020-05-26 09:08:37</span></div></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.cac75e5a.js" defer></script><script src="/assets/js/2.f0fea1c2.js" defer></script><script src="/assets/js/21.17a1140b.js" defer></script>
+  </body>
+</html>
