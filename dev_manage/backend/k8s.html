@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kubernates(K8S) | DKGEE</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="业精于勤荒于嬉，行成于思毁于随">
+    
+    <link rel="preload" href="/assets/css/0.styles.a90809c0.css" as="style"><link rel="preload" href="/assets/js/app.2581f16c.js" as="script"><link rel="preload" href="/assets/js/2.92302c00.js" as="script"><link rel="preload" href="/assets/js/28.ac0f0211.js" as="script"><link rel="prefetch" href="/assets/js/10.dc8781a9.js"><link rel="prefetch" href="/assets/js/100.c81b039d.js"><link rel="prefetch" href="/assets/js/101.6bac7ee4.js"><link rel="prefetch" href="/assets/js/102.9d682726.js"><link rel="prefetch" href="/assets/js/103.3ad701de.js"><link rel="prefetch" href="/assets/js/104.2e24e722.js"><link rel="prefetch" href="/assets/js/105.99f5ea1b.js"><link rel="prefetch" href="/assets/js/106.1a8e4df7.js"><link rel="prefetch" href="/assets/js/107.9d8643f4.js"><link rel="prefetch" href="/assets/js/108.0efcf901.js"><link rel="prefetch" href="/assets/js/109.8116ff8b.js"><link rel="prefetch" href="/assets/js/11.65a8a4a6.js"><link rel="prefetch" href="/assets/js/110.4c7fe030.js"><link rel="prefetch" href="/assets/js/111.4ff4e627.js"><link rel="prefetch" href="/assets/js/112.5719a3c0.js"><link rel="prefetch" href="/assets/js/113.72f13a7c.js"><link rel="prefetch" href="/assets/js/114.f747f81a.js"><link rel="prefetch" href="/assets/js/115.280ee97d.js"><link rel="prefetch" href="/assets/js/116.61bbe55c.js"><link rel="prefetch" href="/assets/js/117.7b6c9a58.js"><link rel="prefetch" href="/assets/js/118.e15b07b0.js"><link rel="prefetch" href="/assets/js/119.fd0453bd.js"><link rel="prefetch" href="/assets/js/12.a29e3c56.js"><link rel="prefetch" href="/assets/js/120.42b01499.js"><link rel="prefetch" href="/assets/js/121.b6aed794.js"><link rel="prefetch" href="/assets/js/122.cc136959.js"><link rel="prefetch" href="/assets/js/123.79c6b456.js"><link rel="prefetch" href="/assets/js/124.803d0501.js"><link rel="prefetch" href="/assets/js/125.462d367b.js"><link rel="prefetch" href="/assets/js/126.bb9e42a2.js"><link rel="prefetch" href="/assets/js/127.f7409af2.js"><link rel="prefetch" href="/assets/js/128.71f6ddaa.js"><link rel="prefetch" href="/assets/js/129.55dcbfcc.js"><link rel="prefetch" href="/assets/js/13.3ed926d8.js"><link rel="prefetch" href="/assets/js/130.02df68fc.js"><link rel="prefetch" href="/assets/js/131.9e52b9ec.js"><link rel="prefetch" href="/assets/js/132.3bf29a59.js"><link rel="prefetch" href="/assets/js/133.119f99df.js"><link rel="prefetch" href="/assets/js/134.bf6d0a42.js"><link rel="prefetch" href="/assets/js/135.96a92ef3.js"><link rel="prefetch" href="/assets/js/136.8a5ac75b.js"><link rel="prefetch" href="/assets/js/137.edfb7fbe.js"><link rel="prefetch" href="/assets/js/138.ab0fae80.js"><link rel="prefetch" href="/assets/js/139.aa586404.js"><link rel="prefetch" href="/assets/js/14.36fd9896.js"><link rel="prefetch" href="/assets/js/140.99e23bea.js"><link rel="prefetch" href="/assets/js/141.63cd8c78.js"><link rel="prefetch" href="/assets/js/142.fd9483b7.js"><link rel="prefetch" href="/assets/js/143.903fe66b.js"><link rel="prefetch" href="/assets/js/144.6b3a337f.js"><link rel="prefetch" href="/assets/js/145.494342c0.js"><link rel="prefetch" href="/assets/js/146.946412c3.js"><link rel="prefetch" href="/assets/js/147.24edeb9f.js"><link rel="prefetch" href="/assets/js/148.a4ae2695.js"><link rel="prefetch" href="/assets/js/149.720b2b89.js"><link rel="prefetch" href="/assets/js/15.760f7edb.js"><link rel="prefetch" href="/assets/js/150.f5ca875c.js"><link rel="prefetch" href="/assets/js/151.87a44908.js"><link rel="prefetch" href="/assets/js/152.8119a8de.js"><link rel="prefetch" href="/assets/js/153.e65523e8.js"><link rel="prefetch" href="/assets/js/154.d688bdd3.js"><link rel="prefetch" href="/assets/js/155.8422c36e.js"><link rel="prefetch" href="/assets/js/156.d582ed71.js"><link rel="prefetch" href="/assets/js/157.a390f80c.js"><link rel="prefetch" href="/assets/js/158.6f2d3a71.js"><link rel="prefetch" href="/assets/js/159.1ade84d0.js"><link rel="prefetch" href="/assets/js/16.4b6f58bf.js"><link rel="prefetch" href="/assets/js/160.1026e083.js"><link rel="prefetch" href="/assets/js/161.e51b6826.js"><link rel="prefetch" href="/assets/js/162.357ce7d0.js"><link rel="prefetch" href="/assets/js/163.805eaf80.js"><link rel="prefetch" href="/assets/js/164.a498cdc1.js"><link rel="prefetch" href="/assets/js/165.4e2bc68f.js"><link rel="prefetch" href="/assets/js/166.f84df4a9.js"><link rel="prefetch" href="/assets/js/167.f03cc6b2.js"><link rel="prefetch" href="/assets/js/168.59d418f7.js"><link rel="prefetch" href="/assets/js/169.55fc92c2.js"><link rel="prefetch" href="/assets/js/17.edaa50b1.js"><link rel="prefetch" href="/assets/js/170.478936d5.js"><link rel="prefetch" href="/assets/js/171.c14ff79d.js"><link rel="prefetch" href="/assets/js/172.65fdad4a.js"><link rel="prefetch" href="/assets/js/173.e379bb9f.js"><link rel="prefetch" href="/assets/js/174.d1704ca0.js"><link rel="prefetch" href="/assets/js/175.36a75360.js"><link rel="prefetch" href="/assets/js/176.374d2151.js"><link rel="prefetch" href="/assets/js/177.bedd576e.js"><link rel="prefetch" href="/assets/js/178.3ae1a7f4.js"><link rel="prefetch" href="/assets/js/179.52a57e6b.js"><link rel="prefetch" href="/assets/js/18.e6e07615.js"><link rel="prefetch" href="/assets/js/180.d2311f79.js"><link rel="prefetch" href="/assets/js/181.7185964c.js"><link rel="prefetch" href="/assets/js/182.05061aa2.js"><link rel="prefetch" href="/assets/js/183.23da57e9.js"><link rel="prefetch" href="/assets/js/184.d7d4ea9d.js"><link rel="prefetch" href="/assets/js/185.755f8171.js"><link rel="prefetch" href="/assets/js/186.439e28cf.js"><link rel="prefetch" href="/assets/js/187.a340698c.js"><link rel="prefetch" href="/assets/js/188.32359247.js"><link rel="prefetch" href="/assets/js/189.215a56bf.js"><link rel="prefetch" href="/assets/js/19.f9432caa.js"><link rel="prefetch" href="/assets/js/190.22bf5387.js"><link rel="prefetch" href="/assets/js/191.d9498abb.js"><link rel="prefetch" href="/assets/js/192.6bac177e.js"><link rel="prefetch" href="/assets/js/193.0b03ade0.js"><link rel="prefetch" href="/assets/js/194.ebc6fe2a.js"><link rel="prefetch" href="/assets/js/195.5ec83041.js"><link rel="prefetch" href="/assets/js/196.a87c80cc.js"><link rel="prefetch" href="/assets/js/197.db6746f4.js"><link rel="prefetch" href="/assets/js/198.ddd938ea.js"><link rel="prefetch" href="/assets/js/199.2115e51e.js"><link rel="prefetch" href="/assets/js/20.be074181.js"><link rel="prefetch" href="/assets/js/200.f77c9109.js"><link rel="prefetch" href="/assets/js/201.c4dac572.js"><link rel="prefetch" href="/assets/js/202.c44a6279.js"><link rel="prefetch" href="/assets/js/203.9c37f4a7.js"><link rel="prefetch" href="/assets/js/204.26cb19a3.js"><link rel="prefetch" href="/assets/js/205.1bf3bba8.js"><link rel="prefetch" href="/assets/js/206.afb3c1c5.js"><link rel="prefetch" href="/assets/js/207.68f43707.js"><link rel="prefetch" href="/assets/js/208.487f8d56.js"><link rel="prefetch" href="/assets/js/209.2a584283.js"><link rel="prefetch" href="/assets/js/21.ae85b16c.js"><link rel="prefetch" href="/assets/js/210.4c6a7e81.js"><link rel="prefetch" href="/assets/js/22.0a3b2fb5.js"><link rel="prefetch" href="/assets/js/23.409b3432.js"><link rel="prefetch" href="/assets/js/24.c32dd1fd.js"><link rel="prefetch" href="/assets/js/25.be3c99d1.js"><link rel="prefetch" href="/assets/js/26.1d8b1269.js"><link rel="prefetch" href="/assets/js/27.3365e2a1.js"><link rel="prefetch" href="/assets/js/29.96320048.js"><link rel="prefetch" href="/assets/js/3.ad15d686.js"><link rel="prefetch" href="/assets/js/30.db11d652.js"><link rel="prefetch" href="/assets/js/31.6e8da8ee.js"><link rel="prefetch" href="/assets/js/32.e636130e.js"><link rel="prefetch" href="/assets/js/33.2e3927c6.js"><link rel="prefetch" href="/assets/js/34.d08ec9c5.js"><link rel="prefetch" href="/assets/js/35.3f020c65.js"><link rel="prefetch" href="/assets/js/36.a0eb90c4.js"><link rel="prefetch" href="/assets/js/37.89db7c50.js"><link rel="prefetch" href="/assets/js/38.43e45c7c.js"><link rel="prefetch" href="/assets/js/39.8de20632.js"><link rel="prefetch" href="/assets/js/4.1151c901.js"><link rel="prefetch" href="/assets/js/40.91f5c293.js"><link rel="prefetch" href="/assets/js/41.7a725b45.js"><link rel="prefetch" href="/assets/js/42.8dab9676.js"><link rel="prefetch" href="/assets/js/43.9d1a55fd.js"><link rel="prefetch" href="/assets/js/44.146b6b32.js"><link rel="prefetch" href="/assets/js/45.c286f069.js"><link rel="prefetch" href="/assets/js/46.ba686ec9.js"><link rel="prefetch" href="/assets/js/47.edc6d2b7.js"><link rel="prefetch" href="/assets/js/48.71c8209c.js"><link rel="prefetch" href="/assets/js/49.fdef6106.js"><link rel="prefetch" href="/assets/js/5.afb58f6e.js"><link rel="prefetch" href="/assets/js/50.b07548c6.js"><link rel="prefetch" href="/assets/js/51.aafb6947.js"><link rel="prefetch" href="/assets/js/52.e95b12f0.js"><link rel="prefetch" href="/assets/js/53.09fb5d2f.js"><link rel="prefetch" href="/assets/js/54.a4f552f9.js"><link rel="prefetch" href="/assets/js/55.756e5823.js"><link rel="prefetch" href="/assets/js/56.87cfb85c.js"><link rel="prefetch" href="/assets/js/57.cb7ab103.js"><link rel="prefetch" href="/assets/js/58.c31a85d5.js"><link rel="prefetch" href="/assets/js/59.25142259.js"><link rel="prefetch" href="/assets/js/6.f9ab3467.js"><link rel="prefetch" href="/assets/js/60.3c4e4e76.js"><link rel="prefetch" href="/assets/js/61.eb651133.js"><link rel="prefetch" href="/assets/js/62.d338e663.js"><link rel="prefetch" href="/assets/js/63.1e245e50.js"><link rel="prefetch" href="/assets/js/64.0e760db2.js"><link rel="prefetch" href="/assets/js/65.c29ed518.js"><link rel="prefetch" href="/assets/js/66.501daccf.js"><link rel="prefetch" href="/assets/js/67.eea41610.js"><link rel="prefetch" href="/assets/js/68.9acdc856.js"><link rel="prefetch" href="/assets/js/69.d771036c.js"><link rel="prefetch" href="/assets/js/7.56d037c8.js"><link rel="prefetch" href="/assets/js/70.9645159e.js"><link rel="prefetch" href="/assets/js/71.7e5f4c7e.js"><link rel="prefetch" href="/assets/js/72.4653aecc.js"><link rel="prefetch" href="/assets/js/73.0ca13a9e.js"><link rel="prefetch" href="/assets/js/74.f7cb046b.js"><link rel="prefetch" href="/assets/js/75.60c987a8.js"><link rel="prefetch" href="/assets/js/76.1ce68774.js"><link rel="prefetch" href="/assets/js/77.6dd15e77.js"><link rel="prefetch" href="/assets/js/78.38359f68.js"><link rel="prefetch" href="/assets/js/79.9ebc8403.js"><link rel="prefetch" href="/assets/js/8.689bbd41.js"><link rel="prefetch" href="/assets/js/80.5e8a50b0.js"><link rel="prefetch" href="/assets/js/81.f64d1d53.js"><link rel="prefetch" href="/assets/js/82.e62a38fe.js"><link rel="prefetch" href="/assets/js/83.ed1c24e3.js"><link rel="prefetch" href="/assets/js/84.99718cce.js"><link rel="prefetch" href="/assets/js/85.c2dff889.js"><link rel="prefetch" href="/assets/js/86.037715fc.js"><link rel="prefetch" href="/assets/js/87.68216eeb.js"><link rel="prefetch" href="/assets/js/88.adeb1c23.js"><link rel="prefetch" href="/assets/js/89.968e1373.js"><link rel="prefetch" href="/assets/js/9.8c010968.js"><link rel="prefetch" href="/assets/js/90.0e0c1046.js"><link rel="prefetch" href="/assets/js/91.2b4d3b06.js"><link rel="prefetch" href="/assets/js/92.65febf0d.js"><link rel="prefetch" href="/assets/js/93.d7245925.js"><link rel="prefetch" href="/assets/js/94.0f23ffe5.js"><link rel="prefetch" href="/assets/js/95.713f0553.js"><link rel="prefetch" href="/assets/js/96.e172b117.js"><link rel="prefetch" href="/assets/js/97.ec2d0742.js"><link rel="prefetch" href="/assets/js/98.55cd23ae.js"><link rel="prefetch" href="/assets/js/99.edb50a94.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a90809c0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">DKGEE</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="软件开发" class="dropdown-title"><span class="title">软件开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="软件开发" class="mobile-dropdown-title"><span class="title">软件开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dev_manage/" class="nav-link router-link-active">
+  研发管理
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/improve.html" class="nav-link">
+  软工修养
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/soft_arch/" class="nav-link">
+  软件架构
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/backend/" class="nav-link router-link-active">
+  后端框架
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/frontend/" class="nav-link">
+  前端框架
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/anli/" class="nav-link">
+  案例与团队
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/tip_wall.html" class="nav-link">
+  小知识墙
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/linux/command.html" class="nav-link">
+  Linux命令
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/renda/" class="nav-link">
+  在职研究生
+</a></li><li class="dropdown-item"><!----> <a href="/renda/" class="nav-link">
+  信管国考题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文学收藏" class="dropdown-title"><span class="title">文学收藏</span> <span class="arrow down"></span></button> <button type="button" aria-label="文学收藏" class="mobile-dropdown-title"><span class="title">文学收藏</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/literature/motto.html" class="nav-link">
+  励志格言
+</a></li><li class="dropdown-item"><!----> <a href="/literature/poetry.html" class="nav-link">
+  古诗词
+</a></li><li class="dropdown-item"><!----> <a href="/literature/poetry_modern.html" class="nav-link">
+  现代诗
+</a></li><li class="dropdown-item"><!----> <a href="/literature/prose.html" class="nav-link">
+  散文艺曲
+</a></li><li class="dropdown-item"><!----> <a href="/literature/music.html" class="nav-link">
+  音乐歌曲
+</a></li><li class="dropdown-item"><!----> <a href="/literature/painting.html" class="nav-link">
+  画作
+</a></li><li class="dropdown-item"><!----> <a href="/literature/book/" class="nav-link">
+  阅读书籍
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="规划指南" class="dropdown-title"><span class="title">规划指南</span> <span class="arrow down"></span></button> <button type="button" aria-label="规划指南" class="mobile-dropdown-title"><span class="title">规划指南</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/" class="nav-link">
+  学习指南
+</a></li><li class="dropdown-item"><!----> <a href="/guide/gitRepo.html" class="nav-link">
+  仓库指南
+</a></li><li class="dropdown-item"><!----> <a href="/guide/report/" class="nav-link">
+  日常总结
+</a></li><li class="dropdown-item"><!----> <a href="/guide/pkm/" class="nav-link">
+  公知图
+</a></li><li class="dropdown-item"><!----> <a href="/guide/eng_word.html" class="nav-link">
+  英语笔记
+</a></li><li class="dropdown-item"><!----> <a href="/guide/summary_year/" class="nav-link">
+  年度规划
+</a></li><li class="dropdown-item"><!----> <a href="/guide/upgrade.html" class="nav-link">
+  每期升级
+</a></li><li class="dropdown-item"><!----> <a href="/guide/about.html" class="nav-link">
+  关于DKGEE
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="站外链接" class="dropdown-title"><span class="title">站外链接</span> <span class="arrow down"></span></button> <button type="button" aria-label="站外链接" class="mobile-dropdown-title"><span class="title">站外链接</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://raw.githack.com/dkgee/skill-map/master/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  知识整理第三版【网页】
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/dkgee/tk_arch/wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  知识整理第二版【wiki】
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/dkgee/bigdata-platform-study" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  知识整理第一版【仓库】
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/dkgee" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/dkgee" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/TankRuning" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://pptang.xyz/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  皮皮糖01
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://pipitang.xyz/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  皮皮糖02
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://cftx.xyz/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  皮皮糖03
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="商务知识" class="dropdown-title"><span class="title">商务知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="商务知识" class="mobile-dropdown-title"><span class="title">商务知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/business/" class="nav-link">
+  商务概述
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="软件开发" class="dropdown-title"><span class="title">软件开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="软件开发" class="mobile-dropdown-title"><span class="title">软件开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dev_manage/" class="nav-link router-link-active">
+  研发管理
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/improve.html" class="nav-link">
+  软工修养
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/soft_arch/" class="nav-link">
+  软件架构
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/backend/" class="nav-link router-link-active">
+  后端框架
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/frontend/" class="nav-link">
+  前端框架
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/anli/" class="nav-link">
+  案例与团队
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/tip_wall.html" class="nav-link">
+  小知识墙
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/linux/command.html" class="nav-link">
+  Linux命令
+</a></li><li class="dropdown-item"><!----> <a href="/dev_manage/renda/" class="nav-link">
+  在职研究生
+</a></li><li class="dropdown-item"><!----> <a href="/renda/" class="nav-link">
+  信管国考题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文学收藏" class="dropdown-title"><span class="title">文学收藏</span> <span class="arrow down"></span></button> <button type="button" aria-label="文学收藏" class="mobile-dropdown-title"><span class="title">文学收藏</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/literature/motto.html" class="nav-link">
+  励志格言
+</a></li><li class="dropdown-item"><!----> <a href="/literature/poetry.html" class="nav-link">
+  古诗词
+</a></li><li class="dropdown-item"><!----> <a href="/literature/poetry_modern.html" class="nav-link">
+  现代诗
+</a></li><li class="dropdown-item"><!----> <a href="/literature/prose.html" class="nav-link">
+  散文艺曲
+</a></li><li class="dropdown-item"><!----> <a href="/literature/music.html" class="nav-link">
+  音乐歌曲
+</a></li><li class="dropdown-item"><!----> <a href="/literature/painting.html" class="nav-link">
+  画作
+</a></li><li class="dropdown-item"><!----> <a href="/literature/book/" class="nav-link">
+  阅读书籍
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="规划指南" class="dropdown-title"><span class="title">规划指南</span> <span class="arrow down"></span></button> <button type="button" aria-label="规划指南" class="mobile-dropdown-title"><span class="title">规划指南</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/" class="nav-link">
+  学习指南
+</a></li><li class="dropdown-item"><!----> <a href="/guide/gitRepo.html" class="nav-link">
+  仓库指南
+</a></li><li class="dropdown-item"><!----> <a href="/guide/report/" class="nav-link">
+  日常总结
+</a></li><li class="dropdown-item"><!----> <a href="/guide/pkm/" class="nav-link">
+  公知图
+</a></li><li class="dropdown-item"><!----> <a href="/guide/eng_word.html" class="nav-link">
+  英语笔记
+</a></li><li class="dropdown-item"><!----> <a href="/guide/summary_year/" class="nav-link">
+  年度规划
+</a></li><li class="dropdown-item"><!----> <a href="/guide/upgrade.html" class="nav-link">
+  每期升级
+</a></li><li class="dropdown-item"><!----> <a href="/guide/about.html" class="nav-link">
+  关于DKGEE
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="站外链接" class="dropdown-title"><span class="title">站外链接</span> <span class="arrow down"></span></button> <button type="button" aria-label="站外链接" class="mobile-dropdown-title"><span class="title">站外链接</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://raw.githack.com/dkgee/skill-map/master/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  知识整理第三版【网页】
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/dkgee/tk_arch/wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  知识整理第二版【wiki】
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/dkgee/bigdata-platform-study" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  知识整理第一版【仓库】
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/dkgee" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/dkgee" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  我的GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/TankRuning" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://pptang.xyz/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  皮皮糖01
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://pipitang.xyz/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  皮皮糖02
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://cftx.xyz/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  皮皮糖03
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="商务知识" class="dropdown-title"><span class="title">商务知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="商务知识" class="mobile-dropdown-title"><span class="title">商务知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/business/" class="nav-link">
+  商务概述
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>软件开发</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dev_manage/" aria-current="page" class="sidebar-link">研发管理</a></li><li><a href="/dev_manage/improve.html" class="sidebar-link">软工修养</a></li><li><a href="/dev_manage/soft_arch/" class="sidebar-link">软件架构</a></li><li><a href="/dev_manage/backend/" aria-current="page" class="sidebar-link">后端框架</a></li><li><a href="/dev_manage/frontend/" class="sidebar-link">前端框架</a></li><li><a href="/dev_manage/anli/" class="sidebar-link">案例与团队</a></li><li><a href="/dev_manage/tip_wall.html" class="sidebar-link">小知识墙</a></li><li><a href="/dev_manage/linux/command.html" class="sidebar-link">Linux命令</a></li><li><a href="/dev_manage/renda/" class="sidebar-link">在职研究生</a></li><li><a href="/renda/" class="sidebar-link">信管国考题</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="kubernates-k8s"><a href="#kubernates-k8s" class="header-anchor">#</a> Kubernates(K8S)</h2> <p>记录k8s一些学习方法、安装命令和脚本</p> <ol><li><a href="https://github.com/dkgee/kubernetes-starter" target="_blank" rel="noopener noreferrer">K8s课程资料仓库<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://github.com/istio/istio" target="_blank" rel="noopener noreferrer">istio<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>：K8s的连接、安全、控制和检测工具</li> <li><a href="https://developer.aliyun.com/article/715805?spm=a2c6h.12873639.0.0.29e220a12lxxqb" target="_blank" rel="noopener noreferrer">容器服务-K8S知识图谱<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="http://docs.kubernetes.org.cn/115.html" target="_blank" rel="noopener noreferrer">Kubernetes中文社区 | 中文文档<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://mp.weixin.qq.com/s/pvmcDQ4fHM905NZSk5FVIg" target="_blank" rel="noopener noreferrer">Kubernetes Dashboard 及监控组件 Heapster 部署<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://github.com/kubeoperator/kubeoperator" target="_blank" rel="noopener noreferrer">KubeOperator<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://feisky.gitbooks.io/kubernetes/content/" target="_blank" rel="noopener noreferrer">Kubernetes指南<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://github.com/feiskyer/kubernetes-handbook" target="_blank" rel="noopener noreferrer">Kubernetes指南-Github<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://feisky.xyz/" target="_blank" rel="noopener noreferrer">倪朋飞的博客-云计算领域<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://mp.weixin.qq.com/s?__biz=MzU0NjEwMTg4Mg==&amp;mid=2247484111&amp;idx=1&amp;sn=0db3aaedd3f01f412704d45a6627633d&amp;chksm=fb638ddacc1404cc9ba8af00cf031b96f5d4fe571cb1715bfbe4d2bd4768abd551e0fa4f9c40&amp;mpshare=1&amp;scene=1&amp;srcid=&amp;sharer_sharetime=1587479409949&amp;sharer_shareid=c2b08c8381f1402bec291a6bcc99c5d0&amp;key=d2a5d91993b95522ef942780fcf27a2273ba96e1c26196bb766ed5a5db37de817699b6ab0d26fe9ba1e54a3cf344fd2f870bc268b8b0f7b50ff33ca973e91f69549fc6c6b9b531973eb9750542e503aa&amp;ascene=1&amp;uin=NTkwMDY0OTAw&amp;devicetype=Windows+7&amp;version=62080079&amp;lang=zh_CN&amp;exportkey=Aa9cI3XFQAsanckWBiHpuf0%3D&amp;pass_ticket=uzM%2BGgmt8agjfUjY0%2BLWt%2FhCujbKbvaGVxxN71%2F9EWXNF33Sr5vdjAwFEAGgCDzt" target="_blank" rel="noopener noreferrer">kubernetes概述-介绍、组件、架构<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ol> <h3 id="k8s知识点"><a href="#k8s知识点" class="header-anchor">#</a> k8s知识点</h3> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>第二章 kubernetes简介
+第一节-k8s是什么？
+第二节k8s优点
+第三节-k8s功能
+第四节-k8s在日志管理系统的应用
+第五节-k8s在 Devops中的应用
+第六节-k8s在微服务中的应用
+第七节-k8s特点和功能总结
+第八节-k8s118+新增功能
+第九节-传统时代v容器时代部暑应用程序的对比分析
+
+第三章 kubernetes组件
+第一节- master节点组件 pserver
+第二节- master节点组件kube-scheduler
+第三节- master节点组件kube-controller-manager
+第四节- master节点组件etcd
+第五节- master节点组件 <span class="token function">docker</span>
+第六节- master节点组件kube-proxy
+第七节- master节点组件 calico
+第八节- master节点组件 corns
+第九节-node节点组件 kubelet
+第十节-node节点组件 <span class="token function">docker</span>
+第十一节-node节点组件 calico
+第十二节-附加组件k8 s dashboard
+第十三节-附加组件 Ingress controller
+第十四节-附加组件 prometheus+ alertmanager+ guarana
+第十五节-附加组件efk第十六节附加组件
+
+第四章 kubernetes API
+第一节API变更
+第二节- OpenMP介绍
+第三节-AP版本和AP组
+
+第五章 kubernetes架构
+第一节-结合架构图详解k8s架构
+
+第六章 kubernetes1.18多 master节点高可用集群安装
+初始化安装k8s集群的机器
+配置 firewall和 iptables防火墙
+配置 selinx和内核参数
+安装和配置 <span class="token function">docker</span>
+安装 keepalive
+初始化k8s集群
+安装caco组件
+在k8s中添加 master2和 master3节点
+在k8s中添加node节点
+测试 keepalive+lvs实现k8s的 master节点高可用
+安装k8s dashboard组件
+配置 dashboard的管理员权限
+安装 metrics-server组件
+
+第七章 kubernetes1.18单 master节点高可用集群安装
+安装配置docker
+安装k8s的maste节点组件
+安装k8s的node节点组件
+在k8s中添加node节点
+安装traefik组件
+安装k8s的dashboard组件
+安装metrics组件
+kubectl top命令讲解
+
+第八章 kubernetes命令行工具- kubectl
+第一节- kubectl简介
+第二节- kubect操作命令演示
+笫三节- kubectl输出选项
+第四节- kubot常用命令介绍
+
+第九章 容器讲解
+笫一节-容器概述
+笫二节-容器镜像
+第三节-私有镜像
+
+第十章 docker讲解
+第一节- docker优点和缺点
+第二节-配置 docker镜像加速器
+第三节- docke基本用法：和镜像相关的命令
+第四节- docker基本用法：和容器相关的命令
+第五节- docker.部署 nginx服务
+第六节-通过 dockerfile构建第一个nginx镜像
+第七节- dockerfile指令介绍
+第八节- dockerfile指令-CMD和 ENTRYPOINT
+第九节- dockerfile指令 VOLUME和 ONBUILD
+第十节1- ONBUILD用法演示
+第十一节- docker容器的数据持久化
+第十二节- docker的数据卷容器
+第十三节- docker数据备份和还原
+第十四节 docker部署 tomcat服务
+第十五节- docker网络
+第十六节- docker容器互联
+第十七节- docker容器隔离
+
+第十一章 kubernetes pod
+第一节-pod简介
+第二节-po是如何工作的？
+第三节- pod template模板介绍
+第四节-和pod相关的ap对象
+第五节-通过编写资源清单yam文件创建pod
+第六节-容器钧子 poststall和 preSto
+第七节-容器採针 livenessProbe和 Ireadinessprobe
+第八节-pod常见的状态和重启策略
+第九节-名称空间 namespace
+第十节-pod标签和标簦选择器
+第十一节- nodeselectori和 nodeName
+
+第十二章pod的高级使用
+第一节-容器存活性探测 livenessProbe讲解
+第二节-容器就绪性探测 readinessProbe讲解
+第三节- livenessProbe实践-演示使用exec探针
+第四节livenessProbe实践-演示使用httpget探针
+第五节-readinessProbe实践-演示使用httpget？探针
+第六节-pod生命周期 lifecycle- poststart和 presto
+第七节-测试 DostStart第八节-测试 preSto
+
+第十三章 pod控制器replicaset 
+replicase简介
+通过replicase管理pod
+replicase实现原理
+
+第十四章 pod控制器 Deployment 
+Deployment简介
+通过 Deployment管理pod
+Deployment控制器spec字段讲解
+
+第十五章 replicase和Deploymen区别
+replicase和deployment区别
+replicase和 deploymen联系
+
+第十六章 kubernetes <span class="token function">service</span>
+第一节- kubernetes service介绍
+第二节-测试通过 service访问pod
+第三节-创建type是 Nodeporti的 <span class="token function">service</span>
+第四节-创建没有 selector的 servce
+第五节-创建tpe是 ExternalName的 servce
+第六节- headless service讲解
+第七节-创建type是 Load Balancer和 externally的 <span class="token function">service</span>
+第八节- <span class="token function">service</span> type汇总整理
+
+第十七章 kubernetes volume存储卷
+第一节- kubernetes volume介绍
+第二节- kubernetes volume- empty Dir
+第三节- kubernetes volume- <span class="token function">host</span> Path
+第四节- kubernetes volume- nfs
+第五节- kubernetes volume-pvc
+第六节测试pvc和v绑定
+第七节-测试pod使用pvc存储卷
+第八节-测试pvc的 Retain回收策略
+
+第十八章pod控制器- daemons
+第一节- Daemonset简介
+第二节-通过 Daemonset'管理pod
+第三节- Daemons部害 fluent组件
+第四节-编写 Daemonset的资源清单文件
+
+第十九章pod高级调度-污点和容忍度
+第一节-污点和容忍度介绍
+第二节-tant和 toleration用法
+第三节-污点和容忍度应用场景
+第四节-测试污点和容忍度
+
+第二十章pod控制器 statefulset
+第一节- statefulset介绍和使用
+第二节-通过 statefulset创建pod
+第三节- statefulset卷申请模板 volume ClaimTemplate
+第四节- statefulset部罟和扩缩容
+第五节-编写 statefulset的资源清单yam文件
+
+第二十一章 storageclass
+第一节- storageclass介绍
+第二节- storageclassi通过n实现pv的动态供给
+第三节- statefulset通过存储类动态生成pv
+
+第二十二章 kubernetes认证、授权、准入控制
+第一节-k8s认证、授权、准入控制介绍
+第二节- token和 kubeconfig认证
+第三节-kBs的RBAC授权机制
+第四节-通过 token令牌登陆 dashboard
+第五节-通过 kubeconfig登陆 dashboard
+
+第二十三章 kubernets中部署EFK日志管理平台
+k8s中安装 elasticsearch组件
+k8s中安装 fluent组件
+k8s中安装 kiana组件
+配置 kiana界面-通过 kiana展示采集的日志数据
+
+第二十四章hem
+第一节-安装hem和 tiller
+第二节·测试hem部k8s应用
+第三节-hem部署 memcache
+第四节-hem部暑 rabbitry
+
+第二十五章在k8s中搭建 prometheus+ alertmanager +grafana全方位监控告警
+第一节- prometheus简介
+笫二节-安装nde- exporter组件
+第三节-在k8s中安装 prometheus：组件
+第四节-配置 prometheus热加载
+笫五节-在kBs中安装 grafana组件
+第六节- grafana导入 prometheus数据源
+第七节-在 grafana界面展示物理节点资源指标
+笫八节-在 guarana界面展示 docker.容器的资源指标
+第九节-安装kube- state-mecs组件
+第十节-在 grafana界面展示kBs资源指标
+第十一节-在k8s中安装 aletmanager组件
+第十二节-配置 alertmanager报警规则
+第十三节配置 alertmanager发送报警到qq邮箱
+第十四节-配置 alertmanager发送报警到钉钉
+第十五节-配置 alertmanager发送报警到微信
+第十六节-配置 alertmanager多途径报警
+
+第二十六章基于 jenkins和 kubernetes的 DevOps平台
+第一节- DevOps概述第二节-在kBs集群中安装 jenkins
+第三节- jenkins对接 kubernetes
+第四节- elkins配置 kubernetes的pod模板
+第五节-配置 jenkins的 <span class="token function">docker</span> hub凭据第六节- jenkins pipeline语法
+第七节-通过 pipeline部署k8s应用第八节-安装 jenkins的 BlueOcean插件
+第九节-通过 pipeline部署k8s应用到测试、开发、运维环境
+第十节-通过 pipeline实现k8s回滚
+
+第二十七章k8s对接ceph
+第一节-ceph块存储rbd介绍
+第二节-ceph文件系统存储 cephas介绍
+第三节-ceph对象存储 radosav介绍
+第四节-分布式存储的优点
+第五节-ceph核心组件介绍
+第六节-安装ceph集群
+第七节-添加 ceph osd
+第八节- ceph os扩容、缩容
+第九节-创建 ceph rbd
+第十节-安装对接ceph的 kubernetes集群
+第十一节- kubernetes对接 ceph rbd
+第十二节-测试pod挂载 ceph rbd
+第十三节-基于 ceph rbd生成pv
+第十四节- statefulset+ storageclass+cph最佳实践
+第十四节-基于 storageclass动态生成pw
+第十五节安装多 monitor的ceph集群
+第十六节-测试k8s对接ceph的多 monitor
+第十七节-ceph集群故障排查
+
+第二十八章 Ingress和 Ingress Controller
+
+第二十九章k8s中部署 Mysql
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br><span class="line-number">196</span><br><span class="line-number">197</span><br><span class="line-number">198</span><br><span class="line-number">199</span><br><span class="line-number">200</span><br><span class="line-number">201</span><br><span class="line-number">202</span><br><span class="line-number">203</span><br><span class="line-number">204</span><br><span class="line-number">205</span><br><span class="line-number">206</span><br><span class="line-number">207</span><br><span class="line-number">208</span><br><span class="line-number">209</span><br><span class="line-number">210</span><br><span class="line-number">211</span><br><span class="line-number">212</span><br><span class="line-number">213</span><br><span class="line-number">214</span><br><span class="line-number">215</span><br><span class="line-number">216</span><br><span class="line-number">217</span><br><span class="line-number">218</span><br><span class="line-number">219</span><br><span class="line-number">220</span><br><span class="line-number">221</span><br><span class="line-number">222</span><br><span class="line-number">223</span><br><span class="line-number">224</span><br><span class="line-number">225</span><br><span class="line-number">226</span><br><span class="line-number">227</span><br><span class="line-number">228</span><br><span class="line-number">229</span><br><span class="line-number">230</span><br><span class="line-number">231</span><br><span class="line-number">232</span><br><span class="line-number">233</span><br><span class="line-number">234</span><br><span class="line-number">235</span><br><span class="line-number">236</span><br><span class="line-number">237</span><br><span class="line-number">238</span><br><span class="line-number">239</span><br><span class="line-number">240</span><br></div></div><p>TODO 需要校正上述文本是否正确，在日常工作中进行分析研究。</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment">#删除services</span>
+$ kubectl delete services nginx-service
+
+<span class="token comment">#删除deployments</span>
+$ kubectl delete deploy kubernetes-bootcamp
+$ kubectl delete deploy nginx-deployment
+
+<span class="token comment">#停掉worker节点的服务</span>
+$ <span class="token function">service</span> kubelet stop <span class="token operator">&amp;&amp;</span> <span class="token function">rm</span> <span class="token parameter variable">-fr</span> /var/lib/kubelet/*
+$ <span class="token function">service</span> kube-proxy stop <span class="token operator">&amp;&amp;</span> <span class="token function">rm</span> <span class="token parameter variable">-fr</span> /var/lib/kube-proxy/*
+$ <span class="token function">service</span> kube-calico stop
+
+systemctl stop kubelet <span class="token operator">&amp;&amp;</span> <span class="token function">rm</span> <span class="token parameter variable">-fr</span> /var/lib/kubelet/*
+systemctl stop kube-proxy <span class="token operator">&amp;&amp;</span> <span class="token function">rm</span> <span class="token parameter variable">-fr</span> /var/lib/kube-proxy/*
+systemctl stop kube-calico 
+
+<span class="token comment">#停掉master节点的服务</span>
+$ <span class="token function">service</span> kube-calico stop
+$ <span class="token function">service</span> kube-scheduler stop
+$ <span class="token function">service</span> kube-controller-manager stop
+$ <span class="token function">service</span> kube-apiserver stop
+$ <span class="token function">service</span> etcd stop <span class="token operator">&amp;&amp;</span> <span class="token function">rm</span> <span class="token parameter variable">-fr</span> /var/lib/etcd/*
+
+kubectl run kubernetes-bootcamp <span class="token parameter variable">--image</span><span class="token operator">=</span>jocatalin/kubernetes-bootcamp:v1 <span class="token parameter variable">--port</span><span class="token operator">=</span><span class="token number">8080</span>
+kubectl get pods
+kubectl logs kubernetes-bootcamp-6b7849c495-q27nd <span class="token parameter variable">-f</span>	<span class="token comment"># 查看pods日志</span>
+kubectl describe pods kubernetes-bootcamp-6b7849c495-q27nd	<span class="token comment"># 查看pods配置</span>
+kubectl <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> kubernetes-bootcamp-6b7849c495-q27nd <span class="token function">bash</span>	<span class="token comment"># 进入pods</span>
+kubectl get serviceaccount	<span class="token comment">#查看serviceaccount (简称sa)</span>
+kubectl get sa
+kubectl get sa <span class="token parameter variable">-o</span> yaml  <span class="token comment"># 以yaml（也可以是json）格式输出sa配置</span>
+kubectl get secrets
+kubectl <span class="token builtin class-name">set</span> image pods nginx <span class="token assign-left variable">nginx</span><span class="token operator">=</span>nginx:1.7.9	<span class="token comment">#修改pods镜像</span>
+
+apply 比create好的原因，是可以随便修改后生效
+
+kubectl run busybox <span class="token parameter variable">--rm</span><span class="token operator">=</span>true <span class="token parameter variable">--image</span><span class="token operator">=</span>busybox <span class="token parameter variable">--restart</span><span class="token operator">=</span>Never <span class="token parameter variable">--tty</span> <span class="token parameter variable">-i</span>  <span class="token comment"># 以busybox创建一个终端</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br></div></div><p><a href="https://www.jianshu.com/p/d84cdfe2ea86" target="_blank" rel="noopener noreferrer">docker 网络配置<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="harbor"><a href="#harbor" class="header-anchor">#</a> Harbor</h3> <p><a href="https://github.com/goharbor/harbor/releases" target="_blank" rel="noopener noreferrer">harbor下载地址<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">curl</span> <span class="token parameter variable">-L</span> https://github.com/docker/compose/releases/download/1.17.1/docker-compose-<span class="token variable"><span class="token variable">`</span><span class="token function">uname</span> <span class="token parameter variable">-s</span><span class="token variable">`</span></span>-<span class="token variable"><span class="token variable">`</span><span class="token function">uname</span> <span class="token parameter variable">-m</span><span class="token variable">`</span></span> <span class="token operator">&gt;</span> /usr/local/bin/docker-compose
+<span class="token function">chmod</span> +x /usr/local/bin/docker-compose
+
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> harbor-online-installer-v1.9.2.tgz
+<span class="token builtin class-name">cd</span> harbor/
+
+<span class="token comment">## 将域名添加到当前hosts中，例如 192.168.2.109 my.harbor.com</span>
+<span class="token function">vim</span> /etc/hosts
+
+<span class="token comment">## 修改配置</span>
+<span class="token function">vim</span> harbor.yml
+
+<span class="token comment">## 修改配置</span>
+<span class="token comment">## hostname: my.harbor.com</span>
+<span class="token comment">## harbor_admin_password: Harbor12345</span>
+<span class="token comment">## database:</span>
+<span class="token comment">##    password: root123</span>
+
+./prepare
+./install.sh
+
+<span class="token comment">## 启动harbor</span>
+./docker-compose up <span class="token parameter variable">-d</span>
+
+<span class="token comment">## 停止HarBor</span>
+./docker-compose down <span class="token parameter variable">-v</span>
+
+<span class="token comment">## 管理界面</span>
+http://my.harbor.com	admin/Harbor12345
+
+<span class="token comment">## step01: 创建用户</span>
+<span class="token comment">## testuser	testuser@163.com testuser qazWSXedc123</span>
+<span class="token comment">## step02: 创建项目</span>
+<span class="token comment">## step03: 为项目分配成员</span>
+<span class="token comment">## step04: 配置其他机器host</span>
+<span class="token builtin class-name">echo</span> <span class="token string">'192.168.2.109 my.harbor.com'</span> <span class="token operator">&gt;&gt;</span> /etc/hosts
+<span class="token comment">## 修改docker配置</span>
+<span class="token function">vim</span> /lib/systemd/system/docker.service
+<span class="token comment">## 设置不安全地址</span>
+<span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/bin/dockerd <span class="token parameter variable">-H</span> fd:// <span class="token parameter variable">--containerd</span><span class="token operator">=</span>/run/containerd/containerd.sock --insecure-registry my.harbor.com
+<span class="token comment">## 重启Docker</span>
+systemctl daemon-reload <span class="token operator">&amp;&amp;</span> systemctl restart <span class="token function">docker</span>
+<span class="token comment">## step05: 登录仓库</span>
+<span class="token function">docker</span> login my.harbor.com
+<span class="token comment">## step06： 重新标记镜像，并推送镜像至远程仓库</span>
+<span class="token function">docker</span> tag nginx:1.7.9 my.harbor.com/micro-service/nginx:1.7.9
+<span class="token function">docker</span> push my.harbor.com/micro-service/nginx:1.7.9
+
+
+
+<span class="token function">docker</span> tag yandex/clickhouse-server:latest registry.cn-beijing.aliyuncs.com/dkgee/clickhouse-server:latest
+<span class="token function">docker</span> push registry.cn-beijing.aliyuncs.com/dkgee/clickhouse-server:latest
+
+<span class="token function">docker</span> tag yandex/clickhouse-client:latest registry.cn-beijing.aliyuncs.com/dkgee/clickhouse-client:latest
+<span class="token function">docker</span> push registry.cn-beijing.aliyuncs.com/dkgee/clickhouse-client:latest
+
+<span class="token function">docker</span> tag spoonest/clickhouse-tabix-web-client:latest registry.cn-beijing.aliyuncs.com/dkgee/clickhouse-tabix-web-client:latest
+<span class="token function">docker</span> push registry.cn-beijing.aliyuncs.com/dkgee/clickhouse-tabix-web-client:latest
+
+<span class="token function">docker</span> tag elasticsearch:7.6.1 registry.cn-beijing.aliyuncs.com/dkgee/elasticsearch:7.6.1
+<span class="token function">docker</span> push registry.cn-beijing.aliyuncs.com/dkgee/elasticsearch:7.6.1
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br></div></div><h3 id="calico"><a href="#calico" class="header-anchor">#</a> Calico</h3> <ol><li><p>安装</p></li> <li><p>重启</p></li></ol> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>systemctl daemon-reload <span class="token operator">&amp;&amp;</span> <span class="token function">service</span> kube-calico start
+journalctl <span class="token parameter variable">-f</span> <span class="token parameter variable">-u</span> kube-calico
+systemctl daemon-reload <span class="token operator">&amp;&amp;</span> <span class="token function">service</span> kube-calico restart <span class="token operator">&amp;&amp;</span> journalctl <span class="token parameter variable">-f</span> <span class="token parameter variable">-u</span> kube-calico
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="查看状态"><a href="#查看状态" class="header-anchor">#</a> 查看状态</h4> <p>calicoctl node status
+netstat -natp|grep ESTABLISHED|grep 179
+netstat -natp|grep ESTABLISHED|grep bird
+netstat -natp|grep bird</p> <h4 id="查看路由"><a href="#查看路由" class="header-anchor">#</a> 查看路由</h4> <p>route		# 路由表
+traceroute	# 跟踪路由
+traceroute 49.233.170.108
+traceroute 122.51.101.124
+traceroute 122.51.173.59</p> <h4 id="calico连接状况"><a href="#calico连接状况" class="header-anchor">#</a> Calico连接状况</h4> <p>Connect(成功启动，正在连接中)								 autodetect<br>
+Connect Socket: Host is unreachable(其他主机ip不通)	 172.21.0.12<br>
+Active Socket: Connection closed(其他主机网络有问题)		 49.233.170.108<br>
+Active Socket: Connection refused(其他主机端口没开放)<br>
+Active Socket: Host is unreachable（其他主机ip不通，主节点上出现该问题）		autodetect</p> <div class="language- extra-class"><pre><code>https://zhuanlan.zhihu.com/p/47228920
+</code></pre></div><h4 id="linux查看网卡流量"><a href="#linux查看网卡流量" class="header-anchor">#</a> linux查看网卡流量</h4> <p>tcpdump -i eth0 src host 172.17.0.10</p> <h4 id="calico-设置ip-in-ip模式"><a href="#calico-设置ip-in-ip模式" class="header-anchor">#</a> calico 设置IP-in-IP模式</h4> <p>calicoctl create -f ipPool-ipip-always.yaml<br>
+calicoctl delete -f ipPool-ipip-always.yaml<br>
+calicoctl get ipp -owide	# 查看ipp段<br>
+calicoctl delete ipPool 10.254.0.0/24	# 删除相应的ipp段<br>
+calicoctl get ipPool -o yaml		# 查看ipPool<br>
+ip a s			# 查看本机 会给主机分配IP，去往其他节点是通过tunl0网卡转发的<br>
+ip r s			# 查看路由<br>
+route -n</p> <p>ipPool-ipip-always.yaml</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> ipPool
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">cidr</span><span class="token punctuation">:</span> 192.168.0.0/16
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">ipip</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">mode</span><span class="token punctuation">:</span> cross<span class="token punctuation">-</span>subnet
+  <span class="token key atrule">nat-outgoing</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> ipPool
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span> 
+<span class="token key atrule">cidr</span><span class="token punctuation">:</span> 10.254.0.0/24 
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+<span class="token key atrule">ipip</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">mode</span><span class="token punctuation">:</span> always
+<span class="token key atrule">nat-outgoing</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h4 id="calico-bgp模式总结"><a href="#calico-bgp模式总结" class="header-anchor">#</a> calico BGP模式总结</h4> <p>https://www.jianshu.com/p/dcad6d74e526</p> <ol><li>BGP模式总结：
+<ul><li>BGP模式下，不会在服务器上创建tunl0，</li> <li>路由转发功能是通过服务器的网卡对流量进行转发的</li></ul></li> <li>ipip-always模式，
+<ul><li>会在每个节点上，都创建tunl0,</li> <li>通过tunl0进行流量转发</li></ul></li> <li>混合ipip-bgp模式
+<ul><li>有些节点创建tunl0, 有些节点不创建tunl0</li> <li>通过tunl0和网卡进行流量转发</li> <li>如果calico集群里，存在多个混合ipip-bgp模式资源对象的话，只有第一个创建的ipip-bgp资源对象有效，
+后面创建一直处于阻塞状态， 经测试，只有删除第一个后，第二个会自动创建的；
+<ul><li>也就是说，在calico集群中，同一时刻只能是第一个ipPool资源对象有效</li></ul></li></ul></li> <li>libnetwork插件负责从ipPool池里，获取IP，指定给docker容器的 )</li></ol> <h2 id="docker网络通信"><a href="#docker网络通信" class="header-anchor">#</a> Docker网络通信</h2> <h3 id="使用consul跨主机网络"><a href="#使用consul跨主机网络" class="header-anchor">#</a> 使用consul跨主机网络</h3> <ol><li><a href="https://www.cnblogs.com/zhouzhifei/p/11987355.html" target="_blank" rel="noopener noreferrer">Docker跨主机网络实践<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://www.cnblogs.com/bigberg/p/8521542.html" target="_blank" rel="noopener noreferrer">Docker容器跨主机通信--overlay网络<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://blog.csdn.net/jiangbenchu/article/details/102495531" target="_blank" rel="noopener noreferrer">参考关键词：networks driver overlay<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="http://c.biancheng.net/view/3176.html" target="_blank" rel="noopener noreferrer">推荐阅读：Docker Swarm简介<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ol> <p>Docker跨主机通信需要key value的服务来保存网络的信息，这里使用consul服务作为key value的服务</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># step01: 构建跨主机网络信息保存consul</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">--restart</span><span class="token operator">=</span><span class="token string">&quot;always&quot;</span> <span class="token parameter variable">--publish</span><span class="token operator">=</span><span class="token string">&quot;8500:8500&quot;</span> <span class="token parameter variable">--hostname</span><span class="token operator">=</span><span class="token string">&quot;consul&quot;</span> <span class="token parameter variable">--name</span><span class="token operator">=</span><span class="token string">&quot;consul&quot;</span> index.alauda.cn/sequenceiq/consul:v0.5.0-v6 <span class="token parameter variable">-server</span> <span class="token parameter variable">-bootstrap</span>
+
+<span class="token comment"># step02: 改造各台主机的Docker配置</span>
+<span class="token function">vim</span> /lib/systemd/system/docker.service
+<span class="token comment">## 添加如下配置</span>
+<span class="token comment">## --cluster-store=consul://192.168.2.106:8500  # consul服务地址</span>
+<span class="token comment">## --cluster-advertise=172.16.200.208:2375    # 加入集群后，广播的地址，也就是每台机器的实际IP地址，也可是是本机的网卡</span>
+<span class="token comment">## 修改后，其中结果如下</span>
+<span class="token comment">## ExecStart=/usr/bin/dockerd  -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --cluster-store=consul://192.168.2.106:8500 --cluster-advertise=192.168.2.106:2375</span>
+<span class="token comment">## 重新加载配置和重启docker容器。</span>
+systemctl daemon-reload <span class="token operator">&amp;&amp;</span> systemctl restart <span class="token function">docker</span>
+<span class="token comment">## 查看consul 中的节点信息</span>
+<span class="token comment">## http://192.168.2.106:8500</span>
+
+<span class="token comment"># step03: 创建overlay网络　　</span>
+<span class="token function">docker</span> network create <span class="token parameter variable">-d</span> overlay multi_host
+<span class="token function">docker</span> network <span class="token function">ls</span>
+<span class="token function">docker</span> network inspect multi_host
+<span class="token function">docker</span> network <span class="token function">rm</span> multi_host
+
+<span class="token comment">## 创建子网络</span>
+<span class="token function">docker</span> network create <span class="token parameter variable">-d</span> overlay <span class="token parameter variable">--subnet</span> <span class="token number">172.30</span>.0.0/16 ctfx_net
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h3 id="使用swam跨主机网络通信"><a href="#使用swam跨主机网络通信" class="header-anchor">#</a> 使用swam跨主机网络通信</h3> <p><a href="https://www.jianshu.com/p/a906941d4377" target="_blank" rel="noopener noreferrer">docker跨主机的网络配置方法<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># step01: 在master运行以下命令会产生token，</span>
+<span class="token function">docker</span> swarm init 
+<span class="token comment"># step02: 使用token，在slave运行</span>
+<span class="token function">docker</span> swarm <span class="token function">join</span> <span class="token parameter variable">--token</span> xxx  <span class="token number">192.168</span>.0.151:2377
+<span class="token comment"># 在主节点上使用以下命令查看节点</span>
+<span class="token function">docker</span> <span class="token function">node</span> <span class="token function">ls</span> 
+<span class="token comment"># 创建一个swarm网络，docker容器之间可以加入到这个网络里实现互联互通</span>
+<span class="token function">docker</span> network create <span class="token parameter variable">-d</span> overlay <span class="token parameter variable">--attachable</span> <span class="token operator">&lt;</span>网络名<span class="token operator">&gt;</span>
+<span class="token comment"># 在启动容器的时候，加入到刚刚创建的网络中就完成了</span>
+<span class="token comment"># 在master上运行</span>
+<span class="token function">docker</span> run <span class="token parameter variable">--name</span> node1 <span class="token parameter variable">-it</span> <span class="token parameter variable">--network</span> <span class="token operator">&lt;</span>网络名<span class="token operator">&gt;</span> debian <span class="token function">bash</span>
+<span class="token comment"># 在slave上运行</span>
+<span class="token function">docker</span> run <span class="token parameter variable">--name</span> node2 <span class="token parameter variable">-it</span> <span class="token parameter variable">--network</span> <span class="token operator">&lt;</span>网络名<span class="token operator">&gt;</span> debian <span class="token function">bash</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h2 id="dns"><a href="#dns" class="header-anchor">#</a> DNS</h2> <p><a href="https://www.jianshu.com/p/c9e376df7074" target="_blank" rel="noopener noreferrer">基于Docker快速搭建DNS Server<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2020-06-10 14:29:09</span></div></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.2581f16c.js" defer></script><script src="/assets/js/2.92302c00.js" defer></script><script src="/assets/js/28.ac0f0211.js" defer></script>
+  </body>
+</html>
